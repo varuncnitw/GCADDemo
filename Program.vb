@@ -20,12 +20,10 @@ Namespace GRXTest
         End Sub
         Public Sub loadDocument(filename As String, ByRef sAllLayers() As String,
                                 ByRef layerCount As Integer)
-            'Dim acDoc As Gssoft.Gscad.ApplicationServices.Document
 
             acDoc = Gssoft.Gscad.ApplicationServices.Application.DocumentManager.Open(filename,
                                                                 False, Nothing)
             Dim acCurDb As Database = acDoc.Database
-            'Dim sAllLayers(100) As String
 
             getLayers(acDoc, sAllLayers, layerCount)
         End Sub
@@ -41,9 +39,6 @@ Namespace GRXTest
                                 )
             Dim acCurDb As Database = acDoc.Database
 
-            'Dim sAllLayers(100) As String
-            'Dim layercount As Integer
-            '            getLayers(acdoc, sAllLayers, layercount)
             Dim acLyrTblRec As LayerTableRecord
 
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
@@ -55,9 +50,6 @@ Namespace GRXTest
 
                     acLyrTblRec = acTrans.GetObject(acObjId,
                                             OpenMode.ForWrite)
-                    'sLayerNames = sLayerNames & vbLf & acLyrTblRec.Name
-                    'Application.ShowAlertDialog("The layers in this drawing are: " &
-                    '            sLayerNames)
                     If (acLyrTblRec.Name = sLayer) Then
                         acLyrTblRec.IsOff = False
                         Exit For
@@ -81,9 +73,6 @@ Namespace GRXTest
                                 )
             Dim acCurDb As Database = acDoc.Database
 
-            'Dim sAllLayers(100) As String
-            'Dim layercount As Integer
-            '            getLayers(acdoc, sAllLayers, layercount)
             Dim acLyrTblRec As LayerTableRecord
 
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
@@ -95,9 +84,6 @@ Namespace GRXTest
 
                     acLyrTblRec = acTrans.GetObject(acObjId,
                                             OpenMode.ForWrite)
-                    'sLayerNames = sLayerNames & vbLf & acLyrTblRec.Name
-                    'Application.ShowAlertDialog("The layers in this drawing are: " &
-                    '            sLayerNames)
                     If (acLyrTblRec.Name = sLayer) Then
                         acLyrTblRec.IsOff = True
                         Exit For
@@ -125,13 +111,8 @@ Namespace GRXTest
                     Dim acLyrTblRec As LayerTableRecord
                     acLyrTblRec = acTrans.GetObject(acObjId,
                                             OpenMode.ForWrite)
-                    'sLayerNames = sLayerNames & vbLf & acLyrTblRec.Name
-                    'Application.ShowAlertDialog("The layers in this drawing are: " &
-                    '            sLayerNames)
-                    'acLyrTblRec.IsOff = True
                     totalLayerCount += 1
                 Next
-                'Dim sAllLayers(totalLayerCount) As String
 
                 Dim indexCount As Integer
                 indexCount = 0
@@ -140,9 +121,6 @@ Namespace GRXTest
                     acLyrTblRec = acTrans.GetObject(acObjId,
                                             OpenMode.ForWrite)
                     sLayerNames = acLyrTblRec.Name
-                    'Application.ShowAlertDialog("The layers in this drawing are: " &
-                    '            sLayerNames)
-                    'acLyrTblRec.IsOff = True
                     sAllLayers(indexCount) = sLayerNames
                     indexCount += 1
                 Next
