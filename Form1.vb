@@ -1,4 +1,13 @@
-﻿Public Class Form1
+﻿'Imports GrxCAD
+
+'Imports GrxCAD.Runtime
+
+'Imports GrxCAD.DatabaseServices
+'Imports GrxCAD.Geometry
+
+'Imports GrxCAD.ApplicationServices
+'Imports GrxCAD.EditorInput
+Public Class Form1
 
     Private Sub Browse_Click(sender As Object, e As EventArgs) Handles Browse.Click
         Using ofd As New OpenFileDialog()
@@ -6,8 +15,14 @@
             'ofd.Title = "Select file"
             If ofd.ShowDialog() = DialogResult.OK Then
                 Me.TextBox1.Text = ofd.FileName
+                MessageBox.Show("Drawing file is Loaded successfully")
+                ' : Load the file
+                Dim acApp As GrxCAD.ApplicationServices.Application
+                'Dim acDoc As GrxCAD.ApplicationServices.Document
 
-                ' TODO: Load the file
+
+                ''                acDoc = GrxCAD.ApplicationServices.Application.DocumentManager.Open(ofd.FileName, False, Nothing)
+
                 MessageBox.Show("Drawing file is Loaded successfully")
 
                 ' TODO: List the layers

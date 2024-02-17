@@ -6,27 +6,52 @@
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ImportedNamespaces>GrxCAD.ApplicationServices=False,GrxCAD.DatabaseServices=False,GrxCAD.EditorInput=False,GrxCAD.Geometry=False,GrxCAD.Runtime=False,System.Data=False,System.Drawing=False,System.Windows.Forms=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,GCADDemo=True</ImportedNamespaces>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="My Project\**" />
+    <EmbeddedResource Remove="My Project\**" />
+    <None Remove="My Project\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application.Designer.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Application.myapp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="My Project\Application.Designer.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="GrxCAD.ApplicationServices" />
+    <Import Include="GrxCAD.DatabaseServices" />
+    <Import Include="GrxCAD.EditorInput" />
+    <Import Include="GrxCAD.Geometry" />
+    <Import Include="GrxCAD.Runtime" />
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="My Project\Application.Designer.vb">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
+    <None Include="My Project\Application.myapp" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
+    <Reference Include="gmap">
+      <HintPath>..\grxsdk_23.2\grxsdk\arx\inc\gmap.dll</HintPath>
+    </Reference>
+    <Reference Include="gmdb">
+      <HintPath>..\grxsdk_23.2\grxsdk\arx\inc\gmdb.dll</HintPath>
+    </Reference>
+    <Reference Include="GrxCAD.Interop">
+      <HintPath>..\grxsdk_23.2\grxsdk\inc-x64\GrxCAD.Interop.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
